@@ -1,0 +1,1101 @@
+ {
+	"info": {
+		"_postman_id": "97a09f8a-bc90-473f-90d6-4807a30aa475",
+		"name": "ecommerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"ishraq\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/auth/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"zaheen\",\r\n    \"password\": \"123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/auth/register",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"cookie = pm.response.headers.get(\"Set-Cookie\");\r",
+									"\r",
+									"pm.globals.set(\"cookie\", cookie);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/auth/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"ishraq\",\r\n    \"password\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/auth/login",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "40"
+								},
+								{
+									"key": "Vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "session=eyJ1c2VybmFtZSI6ImlzaHJhcSJ9.YesJ5w.eavEvLI77ZXHvlsdpnv9yNy6BCQ; HttpOnly; Path=/"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.0.2 Python/3.9.5"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jan 2022 19:30:47 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"isSuccess\": true,\n    \"operation\": \"Log In\"\n}"
+						}
+					]
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/auth/logout",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-account",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/auth/delete-account",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"delete-account"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete-account",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\": \"123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/auth/delete-account",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"auth",
+										"delete-account"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								},
+								{
+									"key": "Vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.0.2 Python/3.9.5"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jan 2022 06:15:30 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"isSuccess\": true,\n    \"operation\": \"Account deleted\"\n}"
+						}
+					]
+				},
+				{
+					"name": "grant-admin-permission",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usernames\": [\r\n        \"tanvir\",\r\n        \"maisha\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/auth/grant-admin-permission",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"grant-admin-permission"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "grant-admin-permission",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"usernames\": [\r\n        \"tanvir\",\r\n        \"maisha\"\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/auth/grant-admin-permission",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"auth",
+										"grant-admin-permission"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "56"
+								},
+								{
+									"key": "Vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.0.2 Python/3.9.5"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jan 2022 06:15:57 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"isSuccess\": true,\n    \"operation\": \"Grant Admin permission\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "add-product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"products\": [\r\n        {\r\n            \"product_name\": \"Havit KB271\",\r\n            \"description\": \"USB Exquisite Keyboard with Bangla\",\r\n            \"product_category\": \"Keyboard\",\r\n            \"price\": 420,\r\n            \"discount\": 30,\r\n            \"in_stock\": 32,\r\n            \"tags\": [\r\n                \"keyboard\",\r\n                \"kb271\",\r\n                \"havit\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Meetion MT-K202 \",\r\n            \"description\": \"USB Waterproof Wired Keyboard\",\r\n            \"product_category\": \"Keyboard\",\r\n            \"price\": 500,\r\n            \"discount\": 40,\r\n            \"in_stock\": 25,\r\n            \"tags\": [\r\n                \"mt-k202\",\r\n                \"keyboard\",\r\n                \"meetion\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Micropack K-206 \",\r\n            \"description\": \"USB Keyboard\",\r\n            \"product_category\": \"Keyboard\",\r\n            \"price\": 380,\r\n            \"discount\": 50,\r\n            \"in_stock\": 30,\r\n            \"tags\": [\r\n                \"keyboard\",\r\n                \"micropack\",\r\n                \"k-206\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Delux KA190U \",\r\n            \"description\": \"USB Multimedia Keyboard\",\r\n            \"product_category\": \"Keyboard\",\r\n            \"price\": 650,\r\n            \"discount\": 150,\r\n            \"in_stock\": 35,\r\n            \"tags\": [\r\n                \"ka190u\",\r\n                \"keyboard\",\r\n                \"delux\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Meetion MT-K841 \",\r\n            \"description\": \" USB Ultrathin Standard Chocolate Keyboard\",\r\n            \"product_category\": \"Keyboard\",\r\n            \"price\": 550,\r\n            \"discount\": 40,\r\n            \"in_stock\": 28,\r\n            \"tags\": [\r\n                \"mt-k841\",\r\n                \"keyboard\",\r\n                \"meetion\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Walton WKS005WN \",\r\n            \"description\": \"USB Bangla & English Keyboard\",\r\n            \"product_category\": \"Keyboard\",\r\n            \"price\": 600,\r\n            \"discount\": 0,\r\n            \"in_stock\": 15,\r\n            \"tags\": [\r\n                \"wks005wn\",\r\n                \"keyboard\",\r\n                \"walton\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Meetion MT-K841\",\r\n            \"description\": \"USB Ultrathin Standard Chocolate Keyboard\",\r\n            \"product_category\": \"Keyboard\",\r\n            \"price\": 480,\r\n            \"discount\": 30,\r\n            \"in_stock\": 20,\r\n            \"tags\": [\r\n                \"mt-k841\",\r\n                \"keyboard\",\r\n                \"meetion\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Xtreme K911\",\r\n            \"description\": \"USB Mini Keyboard\",\r\n            \"product_category\": \"Keyboard\",\r\n            \"price\": 500,\r\n            \"discount\": 0,\r\n            \"in_stock\": 29,\r\n            \"tags\": [\r\n                \"xtreme\",\r\n                \"keyboard\",\r\n                \"k911\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Golden Field GF-K301 \",\r\n            \"description\": \"Wired Multimedia Keyboard with Bangla\",\r\n            \"product_category\": \"Keyboard\",\r\n            \"price\": 400,\r\n            \"discount\": 0,\r\n            \"in_stock\": 30,\r\n            \"tags\": [\r\n                \"field\",\r\n                \"keyboard\",\r\n                \"gf-k301\",\r\n                \"golden\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Rapoo NK1700\",\r\n            \"description\": \"wired usb 2.0 keyboard\",\r\n            \"product_category\": \"Keyboard\",\r\n            \"price\": 700,\r\n            \"discount\": 70,\r\n            \"in_stock\": 34,\r\n            \"tags\": [\r\n                \"nk1700\",\r\n                \"keyboard\",\r\n                \"rapoo\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Micropack K203 \",\r\n            \"description\": \"Basic USB Keyboard\",\r\n            \"product_category\": \"Keyboard\",\r\n            \"price\": 370,\r\n            \"discount\": 0,\r\n            \"in_stock\": 22,\r\n            \"tags\": [\r\n                \"k203\",\r\n                \"micropack\",\r\n                \"keyboard\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Targus Armor\",\r\n            \"description\": \"Mini Blue Trace Wired USB Mouse\",\r\n            \"product_category\": \"Mouse\",\r\n            \"price\": 220,\r\n            \"discount\": 20,\r\n            \"in_stock\": 34,\r\n            \"tags\": [\r\n                \"mouse\",\r\n                \"targus\",\r\n                \"armor\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Micropack M103\",\r\n            \"description\": \"Optical USB Mouse\",\r\n            \"product_category\": \"Mouse\",\r\n            \"price\": 250,\r\n            \"discount\": 0,\r\n            \"in_stock\": 30,\r\n            \"tags\": [\r\n                \"m103\",\r\n                \"micropack\",\r\n                \"mouse\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Targus U575\",\r\n            \"description\": \"USB Wired Optical Mouse(Black)\",\r\n            \"product_category\": \"Mouse\",\r\n            \"price\": 275,\r\n            \"discount\": 50,\r\n            \"in_stock\": 28,\r\n            \"tags\": [\r\n                \"u575\",\r\n                \"mouse\",\r\n                \"targus\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Walton WMS024WN\",\r\n            \"description\": \"USB Mouse\",\r\n            \"product_category\": \"Mouse\",\r\n            \"price\": 280,\r\n            \"discount\": 30,\r\n            \"in_stock\": 25,\r\n            \"tags\": [\r\n                \"walton\",\r\n                \"mouse\",\r\n                \"wms024wn\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"MotoSpeed F303 \",\r\n            \"description\": \"USB Optical Mouse\",\r\n            \"product_category\": \"Mouse\",\r\n            \"price\": 300,\r\n            \"discount\": 25,\r\n            \"in_stock\": 32,\r\n            \"tags\": [\r\n                \"motospeed\",\r\n                \"mouse\",\r\n                \"f303\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Targus W571\",\r\n            \"description\": \"Wirless Optical Mouse (Black)\",\r\n            \"product_category\": \"Mouse\",\r\n            \"price\": 350,\r\n            \"discount\": 0,\r\n            \"in_stock\": 24,\r\n            \"tags\": [\r\n                \"w571\",\r\n                \"mouse\",\r\n                \"targus\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Rapoo N6000\",\r\n            \"description\": \"USB Mini Mouse\",\r\n            \"product_category\": \"Mouse\",\r\n            \"price\": 450,\r\n            \"discount\": 0,\r\n            \"in_stock\": 20,\r\n            \"tags\": [\r\n                \"mouse\",\r\n                \"rapoo\",\r\n                \"n6000\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Logitech M90\",\r\n            \"description\": \"USB Contoured Shape MOUSE\",\r\n            \"product_category\": \"Mouse\",\r\n            \"price\": 412,\r\n            \"discount\": 0,\r\n            \"in_stock\": 22,\r\n            \"tags\": [\r\n                \"logitech\",\r\n                \"mouse\",\r\n                \"m90\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Motospeed G370\",\r\n            \"description\": \"Wireless Mouse\",\r\n            \"product_category\": \"Mouse\",\r\n            \"price\": 430,\r\n            \"discount\": 0,\r\n            \"in_stock\": 26,\r\n            \"tags\": [\r\n                \"g370\",\r\n                \"motospeed\",\r\n                \"mouse\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"A4Tech FM12\",\r\n            \"description\": \"FSTYLER USB Mouse Black\",\r\n            \"product_category\": \"Mouse\",\r\n            \"price\": 400,\r\n            \"discount\": 30,\r\n            \"in_stock\": 35,\r\n            \"tags\": [\r\n                \"mouse\",\r\n                \"fm12\",\r\n                \"a4tech\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"FANTECH W188\",\r\n            \"description\": \"2.4GHz Wireless Office Mouse White\",\r\n            \"product_category\": \"Mouse\",\r\n            \"price\": 600,\r\n            \"discount\": 30,\r\n            \"in_stock\": 34,\r\n            \"tags\": [\r\n                \"fantech\",\r\n                \"mouse\",\r\n                \"w188\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Havit MS691\",\r\n            \"description\": \"Ergonomic RGB Gaming Mouse\",\r\n            \"product_category\": \"Mouse\",\r\n            \"price\": 650,\r\n            \"discount\": 60,\r\n            \"in_stock\": 29,\r\n            \"tags\": [\r\n                \"mouse\",\r\n                \"ms691\",\r\n                \"havit\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"AOC E970SWN5\",\r\n            \"description\": \"18.5 inch LED Backlit Monitor\",\r\n            \"product_category\": \"Monitor\",\r\n            \"price\": 9500,\r\n            \"discount\": 200,\r\n            \"in_stock\": 32,\r\n            \"tags\": [\r\n                \"aoc\",\r\n                \"monitor\",\r\n                \"e970swn5\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Lenovo D19-10\",\r\n            \"description\": \"18.5 Inch HD HDMI VGA Monitor\",\r\n            \"product_category\": \"Monitor\",\r\n            \"price\": 10100,\r\n            \"discount\": 300,\r\n            \"in_stock\": 27,\r\n            \"tags\": [\r\n                \"d19-10\",\r\n                \"lenovo\",\r\n                \"monitor\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"PHILIPS\",\r\n            \"description\": \"18.5 Inch 193V5LSB2 LED MONITOR\",\r\n            \"product_category\": \"Monitor\",\r\n            \"price\": 9800,\r\n            \"discount\": 0,\r\n            \"in_stock\": 25,\r\n            \"tags\": [\r\n                \"philips\",\r\n                \"monitor\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Dell E1916HV \",\r\n            \"description\": \"18.5 Inch LED Monitor (VGA)\",\r\n            \"product_category\": \"Monitor\",\r\n            \"price\": 10530,\r\n            \"discount\": 400,\r\n            \"in_stock\": 28,\r\n            \"tags\": [\r\n                \"e1916hv\",\r\n                \"monitor\",\r\n                \"dell\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Dell D1918H\",\r\n            \"description\": \"18.5 Inch LED Monitor (VGA, HDMI)\",\r\n            \"product_category\": \"Monitor\",\r\n            \"price\": 10700,\r\n            \"discount\": 0,\r\n            \"in_stock\": 32,\r\n            \"tags\": [\r\n                \"d1918h\",\r\n                \"monitor\",\r\n                \"dell\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"LG 19M38A \",\r\n            \"description\": \"18.5 Inch Monitor\",\r\n            \"product_category\": \"Monitor\",\r\n            \"price\": 12000,\r\n            \"discount\": 500,\r\n            \"in_stock\": 35,\r\n            \"tags\": [\r\n                \"lg\",\r\n                \"monitor\",\r\n                \"19m38a\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"HP P204v\",\r\n            \"description\": \"19.5 Inch HD LED Monitor (HDMI, VGA)\",\r\n            \"product_category\": \"Monitor\",\r\n            \"price\": 11400,\r\n            \"discount\": 300,\r\n            \"in_stock\": 23,\r\n            \"tags\": [\r\n                \"monitor\",\r\n                \"p204v\",\r\n                \"hp\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Xiaomi Redmi 1A\",\r\n            \"description\": \"23.8 Monitor\",\r\n            \"product_category\": \"Monitor\",\r\n            \"price\": 13600,\r\n            \"discount\": 0,\r\n            \"in_stock\": 30,\r\n            \"tags\": [\r\n                \"xiaomi\",\r\n                \"monitor\",\r\n                \"1a\",\r\n                \"redmi\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"AOC E2270SWHN\",\r\n            \"description\": \"21.5 Inch Full HD LED Monitor\",\r\n            \"product_category\": \"Monitor\",\r\n            \"price\": 11500,\r\n            \"discount\": 300,\r\n            \"in_stock\": 26,\r\n            \"tags\": [\r\n                \"aoc\",\r\n                \"monitor\",\r\n                \"e2270swhn\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"LG 22MK430H-B\",\r\n            \"description\": \"22 Inch Full HD IPS LED Monitor with AMD FreeSync\",\r\n            \"product_category\": \"Monitor\",\r\n            \"price\": 13700,\r\n            \"discount\": 200,\r\n            \"in_stock\": 29,\r\n            \"tags\": [\r\n                \"22mk430h-b\",\r\n                \"lg\",\r\n                \"monitor\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"HP V22\",\r\n            \"description\": \"21.5 Inch LED Full HD Monitor\",\r\n            \"product_category\": \"Monitor\",\r\n            \"price\": 13400,\r\n            \"discount\": 0,\r\n            \"in_stock\": 34,\r\n            \"tags\": [\r\n                \"v22\",\r\n                \"monitor\",\r\n                \"hp\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Dell SE2222H \",\r\n            \"description\": \"21.5 Inch FHD Monitor\",\r\n            \"product_category\": \"Monitor\",\r\n            \"price\": 15600,\r\n            \"discount\": 150,\r\n            \"in_stock\": 24,\r\n            \"tags\": [\r\n                \"se2222h\",\r\n                \"monitor\",\r\n                \"dell\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Gigabyte GT 710 2GB DDR3 Graphics Card\",\r\n            \"description\": \"2GB DDR3\",\r\n            \"product_category\": \"Graphics Card\",\r\n            \"price\": 6190,\r\n            \"discount\": 2300,\r\n            \"in_stock\": 27,\r\n            \"tags\": [\r\n                \"card\",\r\n                \"gigabyte\",\r\n                \"2gb\",\r\n                \"graphics card\",\r\n                \"gt\",\r\n                \"710\",\r\n                \"ddr3\",\r\n                \"graphics\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Asus Dual GeForce GTX 1650 OC Edition 4GB DDR5 Graphics Card\",\r\n            \"description\": \"OC Edition 4GB DDR5\",\r\n            \"product_category\": \"Graphics Card\",\r\n            \"price\": 40000,\r\n            \"discount\": 3000,\r\n            \"in_stock\": 35,\r\n            \"tags\": [\r\n                \"card\",\r\n                \"1650\",\r\n                \"ddr5\",\r\n                \"graphics card\",\r\n                \"dual\",\r\n                \"graphics\",\r\n                \"oc\",\r\n                \"asus\",\r\n                \"edition\",\r\n                \"geforce\",\r\n                \"gtx\",\r\n                \"4gb\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Zotac GeForce GT 710 2GB DDR3 Graphics Card\",\r\n            \"description\": \"2GB DDR3\",\r\n            \"product_category\": \"Graphics Card\",\r\n            \"price\": 6400,\r\n            \"discount\": 100,\r\n            \"in_stock\": 19,\r\n            \"tags\": [\r\n                \"card\",\r\n                \"2gb\",\r\n                \"graphics card\",\r\n                \"gt\",\r\n                \"710\",\r\n                \"graphics\",\r\n                \"geforce\",\r\n                \"zotac\",\r\n                \"ddr3\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Colorful GeForce GT730K 2GD3-V 2GB Graphics Card\",\r\n            \"description\": \"2GD3-V 2GB\",\r\n            \"product_category\": \"Graphics Card\",\r\n            \"price\": 7500,\r\n            \"discount\": 300,\r\n            \"in_stock\": 25,\r\n            \"tags\": [\r\n                \"card\",\r\n                \"2gd3-v\",\r\n                \"2gb\",\r\n                \"graphics card\",\r\n                \"colorful\",\r\n                \"graphics\",\r\n                \"geforce\",\r\n                \"gt730k\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"GIGABYTE GeForce GT 730 2GB DDR3 PCI EXPRESS Graphics Card\",\r\n            \"description\": \"2GB DDR3 PCI EXPRESS\",\r\n            \"product_category\": \"Graphics Card\",\r\n            \"price\": 7900,\r\n            \"discount\": 500,\r\n            \"in_stock\": 35,\r\n            \"tags\": [\r\n                \"730\",\r\n                \"card\",\r\n                \"gigabyte\",\r\n                \"2gb\",\r\n                \"express\",\r\n                \"graphics card\",\r\n                \"gt\",\r\n                \"geforce\",\r\n                \"graphics\",\r\n                \"ddr3\",\r\n                \"pci\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"MSI GeForce GT 730 Kepler DDR3 2GB OC Low Profile Graphics Card\",\r\n            \"description\": \"DDR3 2GB OC Low Profile\",\r\n            \"product_category\": \"Graphics Card\",\r\n            \"price\": 8900,\r\n            \"discount\": 300,\r\n            \"in_stock\": 32,\r\n            \"tags\": [\r\n                \"730\",\r\n                \"card\",\r\n                \"low\",\r\n                \"2gb\",\r\n                \"msi\",\r\n                \"kepler\",\r\n                \"graphics card\",\r\n                \"profile\",\r\n                \"gt\",\r\n                \"oc\",\r\n                \"geforce\",\r\n                \"graphics\",\r\n                \"ddr3\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"ZOTAC GeForce GT 730 Zone Edition 4GB DDR3 Graphics Card\",\r\n            \"description\": \"Zone Edition 4GB\",\r\n            \"product_category\": \"Graphics Card\",\r\n            \"price\": 11070,\r\n            \"discount\": 150,\r\n            \"in_stock\": 19,\r\n            \"tags\": [\r\n                \"730\",\r\n                \"card\",\r\n                \"graphics card\",\r\n                \"gt\",\r\n                \"graphics\",\r\n                \"zone\",\r\n                \"edition\",\r\n                \"geforce\",\r\n                \"zotac\",\r\n                \"ddr3\",\r\n                \"4gb\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"MSI GeForce GT 1030 2GD4 LP OC 2GB Graphics Card\",\r\n            \"description\": \"2GD4 LP OC 2GB\",\r\n            \"product_category\": \"Graphics Card\",\r\n            \"price\": 11200,\r\n            \"discount\": 700,\r\n            \"in_stock\": 39,\r\n            \"tags\": [\r\n                \"card\",\r\n                \"2gd4\",\r\n                \"2gb\",\r\n                \"msi\",\r\n                \"graphics card\",\r\n                \"gt\",\r\n                \"graphics\",\r\n                \"oc\",\r\n                \"geforce\",\r\n                \"1030\",\r\n                \"lp\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Gigabyte GeForce GTX 1050 TI OC Low Profile 4GB GDDR5 Graphics Card (1 Year Warranty)\",\r\n            \"description\": \"OC Low Profile 4GB GDDR5\",\r\n            \"product_category\": \"Graphics Card\",\r\n            \"price\": 31500,\r\n            \"discount\": 1500,\r\n            \"in_stock\": 34,\r\n            \"tags\": [\r\n                \"card\",\r\n                \"gigabyte\",\r\n                \"1050\",\r\n                \"low\",\r\n                \"warranty)\",\r\n                \"graphics card\",\r\n                \"profile\",\r\n                \"year\",\r\n                \"graphics\",\r\n                \"oc\",\r\n                \"ti\",\r\n                \"(1\",\r\n                \"geforce\",\r\n                \"gtx\",\r\n                \"gddr5\",\r\n                \"4gb\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Palit GeForce GTX 1050 Ti StormX 4GB GDDR5 Graphics Card\",\r\n            \"description\": \"StormX 4GB GDDR5\",\r\n            \"product_category\": \"Graphics Card\",\r\n            \"price\": 27000,\r\n            \"discount\": 0,\r\n            \"in_stock\": 32,\r\n            \"tags\": [\r\n                \"card\",\r\n                \"1050\",\r\n                \"palit\",\r\n                \"stormx\",\r\n                \"graphics card\",\r\n                \"graphics\",\r\n                \"ti\",\r\n                \"geforce\",\r\n                \"gtx\",\r\n                \"gddr5\",\r\n                \"4gb\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Gigabyte GeForce GTX 1650 D6 OC 4GB Graphics Card\",\r\n            \"description\": \"D6 OC 4GB\",\r\n            \"product_category\": \"Graphics Card\",\r\n            \"price\": 35000,\r\n            \"discount\": 2500,\r\n            \"in_stock\": 31,\r\n            \"tags\": [\r\n                \"card\",\r\n                \"gigabyte\",\r\n                \"1650\",\r\n                \"graphics card\",\r\n                \"4gb\",\r\n                \"graphics\",\r\n                \"oc\",\r\n                \"geforce\",\r\n                \"gtx\",\r\n                \"d6\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Zotac Gaming GeForce GTX 1650 OC 4GB GDDR6 Graphics Card\",\r\n            \"description\": \"OC 4GB GDDR6\",\r\n            \"product_category\": \"Graphics Card\",\r\n            \"price\": 35000,\r\n            \"discount\": 1500,\r\n            \"in_stock\": 39,\r\n            \"tags\": [\r\n                \"card\",\r\n                \"gtx\",\r\n                \"1650\",\r\n                \"graphics card\",\r\n                \"gddr6\",\r\n                \"gaming\",\r\n                \"oc\",\r\n                \"graphics\",\r\n                \"geforce\",\r\n                \"zotac\",\r\n                \"4gb\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Palit GeForce GTX 1660 Ti DUAL 6GB GDDR6 Graphics Card\",\r\n            \"description\": \"6GB GDDR6\",\r\n            \"product_category\": \"Graphics Card\",\r\n            \"price\": 55000,\r\n            \"discount\": 0,\r\n            \"in_stock\": 38,\r\n            \"tags\": [\r\n                \"card\",\r\n                \"palit\",\r\n                \"1660\",\r\n                \"graphics card\",\r\n                \"dual\",\r\n                \"6gb\",\r\n                \"gddr6\",\r\n                \"graphics\",\r\n                \"ti\",\r\n                \"geforce\",\r\n                \"gtx\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"MSI GeForce GTX 1660 Super Ventus XS OC 6GB Graphics Card\",\r\n            \"description\": \"OC 6GB\",\r\n            \"product_category\": \"Graphics Card\",\r\n            \"price\": 62000,\r\n            \"discount\": 3000,\r\n            \"in_stock\": 25,\r\n            \"tags\": [\r\n                \"card\",\r\n                \"1660\",\r\n                \"msi\",\r\n                \"graphics card\",\r\n                \"6gb\",\r\n                \"oc\",\r\n                \"graphics\",\r\n                \"super\",\r\n                \"ventus\",\r\n                \"geforce\",\r\n                \"gtx\",\r\n                \"xs\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"MSI Radeon RX 6600 XT MECH 2X 8G OCV1 GDDR6 Graphics Card\",\r\n            \"description\": \"8G OCV1 GDDR6\",\r\n            \"product_category\": \"Graphics Card\",\r\n            \"price\": 70000,\r\n            \"discount\": 5000,\r\n            \"in_stock\": 18,\r\n            \"tags\": [\r\n                \"xt\",\r\n                \"card\",\r\n                \"ocv1\",\r\n                \"msi\",\r\n                \"graphics card\",\r\n                \"2x\",\r\n                \"8g\",\r\n                \"gddr6\",\r\n                \"radeon\",\r\n                \"6600\",\r\n                \"rx\",\r\n                \"mech\",\r\n                \"graphics\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"ZOTAC GAMING GeForce RTX 3060 Ti Twin Edge OC LHR 8GB Graphics Card\",\r\n            \"description\": \"OC LHR 8GB\",\r\n            \"product_category\": \"Graphics Card\",\r\n            \"price\": 97000,\r\n            \"discount\": 5000,\r\n            \"in_stock\": 19,\r\n            \"tags\": [\r\n                \"lhr\",\r\n                \"rtx\",\r\n                \"card\",\r\n                \"8gb\",\r\n                \"graphics card\",\r\n                \"twin\",\r\n                \"gaming\",\r\n                \"oc\",\r\n                \"graphics\",\r\n                \"ti\",\r\n                \"edge\",\r\n                \"geforce\",\r\n                \"zotac\",\r\n                \"3060\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"GIGABYTE GeForce RTX 3060 Ti EAGLE 8GB Graphics Card\",\r\n            \"description\": \"8GB\",\r\n            \"product_category\": \"Graphics Card\",\r\n            \"price\": 95480,\r\n            \"discount\": 5600,\r\n            \"in_stock\": 28,\r\n            \"tags\": [\r\n                \"rtx\",\r\n                \"card\",\r\n                \"gigabyte\",\r\n                \"eagle\",\r\n                \"8gb\",\r\n                \"graphics card\",\r\n                \"ti\",\r\n                \"geforce\",\r\n                \"graphics\",\r\n                \"3060\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Sapphire PULSE AMD Radeon RX 6700 XT GAMING OC 12GB GDDR6 Graphics Card\",\r\n            \"description\": \"OC 12GB GDDR6\",\r\n            \"product_category\": \"Graphics Card\",\r\n            \"price\": 95000,\r\n            \"discount\": 5000,\r\n            \"in_stock\": 29,\r\n            \"tags\": [\r\n                \"xt\",\r\n                \"card\",\r\n                \"6700\",\r\n                \"12gb\",\r\n                \"pulse\",\r\n                \"sapphire\",\r\n                \"amd\",\r\n                \"graphics card\",\r\n                \"gddr6\",\r\n                \"radeon\",\r\n                \"gaming\",\r\n                \"oc\",\r\n                \"rx\",\r\n                \"graphics\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Sapphire NITRO+ AMD Radeon RX 6700 XT Gaming OC 12GB GDDR6 Graphics Card\",\r\n            \"description\": \"OC 12GB GDDR6\",\r\n            \"product_category\": \"Graphics Card\",\r\n            \"price\": 105000,\r\n            \"discount\": 10000,\r\n            \"in_stock\": 36,\r\n            \"tags\": [\r\n                \"xt\",\r\n                \"card\",\r\n                \"6700\",\r\n                \"12gb\",\r\n                \"sapphire\",\r\n                \"amd\",\r\n                \"graphics card\",\r\n                \"gddr6\",\r\n                \"radeon\",\r\n                \"gaming\",\r\n                \"oc\",\r\n                \"rx\",\r\n                \"nitro+\",\r\n                \"graphics\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Palit GeForce RTX 3070 GamingPro 8GB GDDR6 Graphics Card\",\r\n            \"description\": \"8GB GDDR6\",\r\n            \"product_category\": \"Graphics Card\",\r\n            \"price\": 102000,\r\n            \"discount\": 0,\r\n            \"in_stock\": 36,\r\n            \"tags\": [\r\n                \"rtx\",\r\n                \"gamingpro\",\r\n                \"card\",\r\n                \"palit\",\r\n                \"8gb\",\r\n                \"graphics card\",\r\n                \"gddr6\",\r\n                \"3070\",\r\n                \"geforce\",\r\n                \"graphics\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Sapphire NITRO PLUS AMD Radeon RX 6800 Gaming OC 16GB Graphics Card\",\r\n            \"description\": \"OC 16GB\",\r\n            \"product_category\": \"Graphics Card\",\r\n            \"price\": 115000,\r\n            \"discount\": 5000,\r\n            \"in_stock\": 32,\r\n            \"tags\": [\r\n                \"card\",\r\n                \"nitro\",\r\n                \"sapphire\",\r\n                \"amd\",\r\n                \"graphics card\",\r\n                \"plus\",\r\n                \"radeon\",\r\n                \"gaming\",\r\n                \"oc\",\r\n                \"rx\",\r\n                \"6800\",\r\n                \"graphics\",\r\n                \"16gb\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Sapphire PULSE AMD Radeon RX 6800 Gaming 16GB GDDR6 Graphics Card\",\r\n            \"description\": \"16GB GDDR6\",\r\n            \"product_category\": \"Graphics Card\",\r\n            \"price\": 121000,\r\n            \"discount\": 10000,\r\n            \"in_stock\": 25,\r\n            \"tags\": [\r\n                \"card\",\r\n                \"pulse\",\r\n                \"sapphire\",\r\n                \"amd\",\r\n                \"graphics card\",\r\n                \"gddr6\",\r\n                \"radeon\",\r\n                \"gaming\",\r\n                \"rx\",\r\n                \"6800\",\r\n                \"graphics\",\r\n                \"16gb\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Gigabyte GeForce RTX 3070 Ti Gaming OC 8GB Graphics Card\",\r\n            \"description\": \"OC 8GB\",\r\n            \"product_category\": \"Graphics Card\",\r\n            \"price\": 125860,\r\n            \"discount\": 5000,\r\n            \"in_stock\": 31,\r\n            \"tags\": [\r\n                \"rtx\",\r\n                \"card\",\r\n                \"gigabyte\",\r\n                \"8gb\",\r\n                \"graphics card\",\r\n                \"gaming\",\r\n                \"oc\",\r\n                \"ti\",\r\n                \"3070\",\r\n                \"geforce\",\r\n                \"graphics\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"ZOTAC Gaming GeForce RTX 3070 Ti Trinity OC 8GB GDDR6X Graphics Card\",\r\n            \"description\": \"8GB GDDR6X\",\r\n            \"product_category\": \"Graphics Card\",\r\n            \"price\": 130000,\r\n            \"discount\": 5000,\r\n            \"in_stock\": 25,\r\n            \"tags\": [\r\n                \"rtx\",\r\n                \"card\",\r\n                \"8gb\",\r\n                \"gddr6x\",\r\n                \"graphics card\",\r\n                \"trinity\",\r\n                \"gaming\",\r\n                \"oc\",\r\n                \"graphics\",\r\n                \"ti\",\r\n                \"3070\",\r\n                \"geforce\",\r\n                \"zotac\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Gigabyte Radeon RX 6900 XT GAMING OC 16GB GDDR6 Graphics Card\",\r\n            \"description\": \"OC 16GB GDDR6\",\r\n            \"product_category\": \"Graphics Card\",\r\n            \"price\": 160000,\r\n            \"discount\": 5000,\r\n            \"in_stock\": 32,\r\n            \"tags\": [\r\n                \"xt\",\r\n                \"card\",\r\n                \"gigabyte\",\r\n                \"graphics card\",\r\n                \"gddr6\",\r\n                \"radeon\",\r\n                \"gaming\",\r\n                \"oc\",\r\n                \"6900\",\r\n                \"rx\",\r\n                \"graphics\",\r\n                \"16gb\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Asus TUF Gaming GeForce RTX 3080 Ti OC 12GB GDDR6X Graphics Card\",\r\n            \"description\": \"OC 12GB GDDR6X\",\r\n            \"product_category\": \"Graphics Card\",\r\n            \"price\": 247500,\r\n            \"discount\": 20000,\r\n            \"in_stock\": 26,\r\n            \"tags\": [\r\n                \"rtx\",\r\n                \"card\",\r\n                \"tuf\",\r\n                \"12gb\",\r\n                \"gddr6x\",\r\n                \"graphics card\",\r\n                \"gaming\",\r\n                \"oc\",\r\n                \"asus\",\r\n                \"3080\",\r\n                \"ti\",\r\n                \"geforce\",\r\n                \"graphics\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Gigabyte 8GB DDR4 2666MHz Heatsink Desktop Ram\",\r\n            \"description\": \"DDR4 2666MHz Heatsink\",\r\n            \"product_category\": \"Ram\",\r\n            \"price\": 3800,\r\n            \"discount\": 300,\r\n            \"in_stock\": 32,\r\n            \"tags\": [\r\n                \"gigabyte\",\r\n                \"heatsink\",\r\n                \"desktop\",\r\n                \"ram\",\r\n                \"8gb\",\r\n                \"ddr4\",\r\n                \"2666mhz\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Gigabyte AORUS RGB 16GB (2x8GB) DDR4 3333MHz Desktop Gaming RAM\",\r\n            \"description\": \"16GB (2x8GB) DDR4 3333MHz\",\r\n            \"product_category\": \"Ram\",\r\n            \"price\": 11500,\r\n            \"discount\": 900,\r\n            \"in_stock\": 16,\r\n            \"tags\": [\r\n                \"gigabyte\",\r\n                \"aorus\",\r\n                \"desktop\",\r\n                \"ram\",\r\n                \"3333mhz\",\r\n                \"rgb\",\r\n                \"ddr4\",\r\n                \"gaming\",\r\n                \"(2x8gb)\",\r\n                \"16gb\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Gigabyte AORUS 8GB 3200MHz RGB RAM\",\r\n            \"description\": \"8GB 3200MHz\",\r\n            \"product_category\": \"Ram\",\r\n            \"price\": 4540,\r\n            \"discount\": 300,\r\n            \"in_stock\": 28,\r\n            \"tags\": [\r\n                \"gigabyte\",\r\n                \"aorus\",\r\n                \"ram\",\r\n                \"8gb\",\r\n                \"rgb\",\r\n                \"3200mhz\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Corsair VENGEANCE 16GB DDR5 4800MHz C40 RAM\",\r\n            \"description\": \"16GB DDR5 4800MHz\",\r\n            \"product_category\": \"Ram\",\r\n            \"price\": 18700,\r\n            \"discount\": 1700,\r\n            \"in_stock\": 17,\r\n            \"tags\": [\r\n                \"c40\",\r\n                \"ram\",\r\n                \"ddr5\",\r\n                \"corsair\",\r\n                \"vengeance\",\r\n                \"4800mhz\",\r\n                \"16gb\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Corsair Dominator Platinum RGB 8GB 3200MHz DDR4 RAM (White)\",\r\n            \"description\": \"RGB 8GB 3200MHz DDR4\",\r\n            \"product_category\": \"Ram\",\r\n            \"price\": 6980,\r\n            \"discount\": 600,\r\n            \"in_stock\": 32,\r\n            \"tags\": [\r\n                \"(white)\",\r\n                \"ram\",\r\n                \"corsair\",\r\n                \"dominator\",\r\n                \"8gb\",\r\n                \"platinum\",\r\n                \"rgb\",\r\n                \"ddr4\",\r\n                \"3200mhz\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Avita Magus Celeron N3350\",\r\n            \"description\": \"12.2 FHD Laptop Steel Blue\",\r\n            \"product_category\": \"Laptop\",\r\n            \"price\": 25000,\r\n            \"discount\": 2000,\r\n            \"in_stock\": 23,\r\n            \"tags\": [\r\n                \"avita\",\r\n                \"laptop\",\r\n                \"celeron\",\r\n                \"magus\",\r\n                \"n3350\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"HP 15s-du3786TU\",\r\n            \"description\": \"Core i3 11th Gen 15.6 FHD Laptop\",\r\n            \"product_category\": \"Laptop\",\r\n            \"price\": 55000,\r\n            \"discount\": 2500,\r\n            \"in_stock\": 28,\r\n            \"tags\": [\r\n                \"15s-du3786tu\",\r\n                \"laptop\",\r\n                \"hp\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Dell Inspiron 15 3511\",\r\n            \"description\": \"Core i3 11th Gen 15.6 FHD Laptop\",\r\n            \"product_category\": \"Laptop\",\r\n            \"price\": 54250,\r\n            \"discount\": 3500,\r\n            \"in_stock\": 29,\r\n            \"tags\": [\r\n                \"15\",\r\n                \"laptop\",\r\n                \"3511\",\r\n                \"dell\",\r\n                \"inspiron\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Chuwi Corebook X\",\r\n            \"description\": \"Core i5 8th Gen 14-Inch Laptop\",\r\n            \"product_category\": \"Laptop\",\r\n            \"price\": 54800,\r\n            \"discount\": 2000,\r\n            \"in_stock\": 26,\r\n            \"tags\": [\r\n                \"chuwi\",\r\n                \"laptop\",\r\n                \"x\",\r\n                \"corebook\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"ASUS ExpertBook L1\",\r\n            \"description\": \"L1500CDA Ryzen 3 3250U 15.6 FHD Laptop\",\r\n            \"product_category\": \"Laptop\",\r\n            \"price\": 52000,\r\n            \"discount\": 2000,\r\n            \"in_stock\": 24,\r\n            \"tags\": [\r\n                \"asus\",\r\n                \"laptop\",\r\n                \"expertbook\",\r\n                \"l1\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Acer Aspire 5 A514-54\",\r\n            \"description\": \"Core i3 11th Gen 14 FHD Laptop\",\r\n            \"product_category\": \"Laptop\",\r\n            \"price\": 57000,\r\n            \"discount\": 4000,\r\n            \"in_stock\": 27,\r\n            \"tags\": [\r\n                \"5\",\r\n                \"a514-54\",\r\n                \"laptop\",\r\n                \"acer\",\r\n                \"aspire\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"MSI Modern 14 B10MW\",\r\n            \"description\": \"Core i3 10th Gen 8GB RAM 14 Full HD Laptop\",\r\n            \"product_category\": \"Laptop\",\r\n            \"price\": 56100,\r\n            \"discount\": 3200,\r\n            \"in_stock\": 23,\r\n            \"tags\": [\r\n                \"msi\",\r\n                \"14\",\r\n                \"b10mw\",\r\n                \"laptop\",\r\n                \"modern\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Lenovo IdeaPad Slim 3i\",\r\n            \"description\": \"Core i5 10th Gen 15.6 FHD Laptop\",\r\n            \"product_category\": \"Laptop\",\r\n            \"price\": 61850,\r\n            \"discount\": 3850,\r\n            \"in_stock\": 30,\r\n            \"tags\": [\r\n                \"laptop\",\r\n                \"slim\",\r\n                \"3i\",\r\n                \"lenovo\",\r\n                \"ideapad\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Dell Inspiron 15 3501\",\r\n            \"description\": \"Core i5 11th Gen 15.6 FHD Laptop\",\r\n            \"product_category\": \"Laptop\",\r\n            \"price\": 62170,\r\n            \"discount\": 4700,\r\n            \"in_stock\": 24,\r\n            \"tags\": [\r\n                \"15\",\r\n                \"laptop\",\r\n                \"dell\",\r\n                \"3501\",\r\n                \"inspiron\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Asus ExpertBook B1\",\r\n            \"description\": \"Core i3 11th Gen 14 FHD Laptop\",\r\n            \"product_category\": \"Laptop\",\r\n            \"price\": 60500,\r\n            \"discount\": 2500,\r\n            \"in_stock\": 25,\r\n            \"tags\": [\r\n                \"b1\",\r\n                \"asus\",\r\n                \"laptop\",\r\n                \"expertbook\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Walton Passion BP7800\",\r\n            \"description\": \"Core i7 8th Gen 15.6 HD Laptop\",\r\n            \"product_category\": \"Laptop\",\r\n            \"price\": 62470,\r\n            \"discount\": 2480,\r\n            \"in_stock\": 30,\r\n            \"tags\": [\r\n                \"laptop\",\r\n                \"bp7800\",\r\n                \"walton\",\r\n                \"passion\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Dell Inspiron 15 3501\",\r\n            \"description\": \"Core i5 11th Gen 8GB RAM 15.6 FHD Laptop\",\r\n            \"product_category\": \"Laptop\",\r\n            \"price\": 67100,\r\n            \"discount\": 2300,\r\n            \"in_stock\": 23,\r\n            \"tags\": [\r\n                \"15\",\r\n                \"laptop\",\r\n                \"dell\",\r\n                \"3501\",\r\n                \"inspiron\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Dell Vostro 15 3500\",\r\n            \"description\": \"Core i5 11th Gen 15.6 FHD Laptop\",\r\n            \"product_category\": \"Laptop\",\r\n            \"price\": 67270,\r\n            \"discount\": 4300,\r\n            \"in_stock\": 24,\r\n            \"tags\": [\r\n                \"15\",\r\n                \"laptop\",\r\n                \"vostro\",\r\n                \"dell\",\r\n                \"3500\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Lenovo IdeaPad Slim 3i \",\r\n            \"description\": \"Core i5 11th Gen 15.6 FHD Laptop with Backlit Keyboard\",\r\n            \"product_category\": \"Laptop\",\r\n            \"price\": 72040,\r\n            \"discount\": 3420,\r\n            \"in_stock\": 26,\r\n            \"tags\": [\r\n                \"laptop\",\r\n                \"slim\",\r\n                \"3i\",\r\n                \"lenovo\",\r\n                \"ideapad\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Asus X515JP\",\r\n            \"description\": \"Core i5 10th Gen MX330 2GB Graphics 15.6 FHD Laptop\",\r\n            \"product_category\": \"Laptop\",\r\n            \"price\": 73240,\r\n            \"discount\": 3400,\r\n            \"in_stock\": 26,\r\n            \"tags\": [\r\n                \"asus\",\r\n                \"laptop\",\r\n                \"x515jp\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Logitech Smart Dock\",\r\n            \"description\": \"Used with Microsoft Surface Pro\",\r\n            \"product_category\": \"Laptop\",\r\n            \"price\": 77000,\r\n            \"discount\": 4500,\r\n            \"in_stock\": 27,\r\n            \"tags\": [\r\n                \"smart\",\r\n                \"logitech\",\r\n                \"laptop\",\r\n                \"dock\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Dell Inspiron 15 3501\",\r\n            \"description\": \"Core i5 11th Gen 512GB SSD MX330 2GB Graphics 15.6 FHD Laptop\",\r\n            \"product_category\": \"Laptop\",\r\n            \"price\": 75950,\r\n            \"discount\": 3450,\r\n            \"in_stock\": 24,\r\n            \"tags\": [\r\n                \"15\",\r\n                \"laptop\",\r\n                \"dell\",\r\n                \"3501\",\r\n                \"inspiron\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"HP Pavilion 15-eg1678TU\",\r\n            \"description\": \"Core i5 11th Gen 15.6 FHD Laptop\",\r\n            \"product_category\": \"Laptop\",\r\n            \"price\": 82500,\r\n            \"discount\": 4500,\r\n            \"in_stock\": 25,\r\n            \"tags\": [\r\n                \"15-eg1678tu\",\r\n                \"pavilion\",\r\n                \"laptop\",\r\n                \"hp\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Acer Aspire 5 A514-54G\",\r\n            \"description\": \"Core i5 11th Gen MX350 2GB Graphics 14 FHD Laptop\",\r\n            \"product_category\": \"Laptop\",\r\n            \"price\": 81360,\r\n            \"discount\": 4310,\r\n            \"in_stock\": 22,\r\n            \"tags\": [\r\n                \"5\",\r\n                \"laptop\",\r\n                \"acer\",\r\n                \"aspire\",\r\n                \"a514-54g\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"ASUS VivoBook S15\",\r\n            \"description\": \"M533IA Ryzen 7 4700U 15.6 FHD Laptop\",\r\n            \"product_category\": \"Laptop\",\r\n            \"price\": 83600,\r\n            \"discount\": 3600,\r\n            \"in_stock\": 26,\r\n            \"tags\": [\r\n                \"vivobook\",\r\n                \"asus\",\r\n                \"laptop\",\r\n                \"s15\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"HP Probook 450 G8 \",\r\n            \"description\": \"Core i5 11th Gen 512GB SSD 15.6 inch FHD Laptop\",\r\n            \"product_category\": \"Laptop\",\r\n            \"price\": 85400,\r\n            \"discount\": 5000,\r\n            \"in_stock\": 27,\r\n            \"tags\": [\r\n                \"probook\",\r\n                \"450\",\r\n                \"laptop\",\r\n                \"g8\",\r\n                \"hp\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"MSI GF63 THIN 11SC\",\r\n            \"description\": \"Core i5 11th Gen GTX 1650 4GB Graphics 15.6 FHD Gaming Laptop\",\r\n            \"product_category\": \"Laptop\",\r\n            \"price\": 90000,\r\n            \"discount\": 5400,\r\n            \"in_stock\": 22,\r\n            \"tags\": [\r\n                \"11sc\",\r\n                \"msi\",\r\n                \"laptop\",\r\n                \"thin\",\r\n                \"gf63\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Microsoft Surface Laptop Go\",\r\n            \"description\": \"Core i5 10th Gen 8GB RAM 128GB SSD 12.4 Multi Touch Display Laptop\",\r\n            \"product_category\": \"Laptop\",\r\n            \"price\": 92000,\r\n            \"discount\": 5500,\r\n            \"in_stock\": 27,\r\n            \"tags\": [\r\n                \"surface\",\r\n                \"go\",\r\n                \"laptop\",\r\n                \"microsoft\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Lenovo IdeaPad Gaming 3i\",\r\n            \"description\": \"Core i5 10th Gen GTX1650 4GB Graphics 15.6 FHD Laptop\",\r\n            \"product_category\": \"Laptop\",\r\n            \"price\": 93850,\r\n            \"discount\": 3790,\r\n            \"in_stock\": 25,\r\n            \"tags\": [\r\n                \"laptop\",\r\n                \"gaming\",\r\n                \"3i\",\r\n                \"lenovo\",\r\n                \"ideapad\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Acer Nitro 5 AN515-56 \",\r\n            \"description\": \"Core i5 11th Gen 512GB SSD, GTX 1650 4GB, 15.6 FHD 144hz Gaming Laptop\",\r\n            \"product_category\": \"Laptop\",\r\n            \"price\": 94000,\r\n            \"discount\": 4000,\r\n            \"in_stock\": 25,\r\n            \"tags\": [\r\n                \"5\",\r\n                \"nitro\",\r\n                \"laptop\",\r\n                \"acer\",\r\n                \"an515-56\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Asus TUF Gaming F15 \",\r\n            \"description\": \"FX506LH Core i5 GTX 1650 4GB Graphics 15.6 FHD Gaming Laptop\",\r\n            \"product_category\": \"Laptop\",\r\n            \"price\": 96800,\r\n            \"discount\": 6000,\r\n            \"in_stock\": 23,\r\n            \"tags\": [\r\n                \"tuf\",\r\n                \"laptop\",\r\n                \"gaming\",\r\n                \"asus\",\r\n                \"f15\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Gigabyte Aorus 5 MB\",\r\n            \"description\": \"Core i5 10th Gen 512GB SSD, GTX 1650Ti Graphics 15.6 144Hz FHD Gaming Laptop\",\r\n            \"product_category\": \"Laptop\",\r\n            \"price\": 96020,\r\n            \"discount\": 89500,\r\n            \"in_stock\": 26,\r\n            \"tags\": [\r\n                \"gigabyte\",\r\n                \"5\",\r\n                \"aorus\",\r\n                \"laptop\",\r\n                \"mb\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Lenovo ThinkBook 15 G2\",\r\n            \"description\": \"Intel Core i7 11th Gen 8GB RAM 15.6 FHD Laptop\",\r\n            \"product_category\": \"Laptop\",\r\n            \"price\": 99000,\r\n            \"discount\": 5000,\r\n            \"in_stock\": 24,\r\n            \"tags\": [\r\n                \"15\",\r\n                \"g2\",\r\n                \"thinkbook\",\r\n                \"laptop\",\r\n                \"lenovo\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Dell Inspiron 15 5510\",\r\n            \"description\": \"Core i7 11th Gen 15 FHD Laptop\",\r\n            \"product_category\": \"Laptop\",\r\n            \"price\": 104500,\r\n            \"discount\": 4500,\r\n            \"in_stock\": 27,\r\n            \"tags\": [\r\n                \"15\",\r\n                \"5510\",\r\n                \"laptop\",\r\n                \"dell\",\r\n                \"inspiron\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"HP Pavilion 15-eg0121TX\",\r\n            \"description\": \"Core i7 11th Gen 15.6 FHD Laptop\",\r\n            \"product_category\": \"Laptop\",\r\n            \"price\": 106700,\r\n            \"discount\": 6000,\r\n            \"in_stock\": 28,\r\n            \"tags\": [\r\n                \"15-eg0121tx\",\r\n                \"pavilion\",\r\n                \"laptop\",\r\n                \"hp\"\r\n            ]\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/products/add-product",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"products",
+								"add-product"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "add-product",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"products\": [\r\n        {\r\n            \"product_name\": \"Havit KB271\",\r\n            \"description\": \"USB Exquisite Keyboard with Bangla\",\r\n            \"product_category\": \"Keyboard\",\r\n            \"price\": 420,\r\n            \"discount\": 30,\r\n            \"in_stock\": 32,\r\n            \"tags\": [\r\n                \"havit\",\r\n                \"keyboard\",\r\n                \"kb271\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Meetion MT-K202 \",\r\n            \"description\": \"USB Waterproof Wired Keyboard\",\r\n            \"product_category\": \"Keyboard\",\r\n            \"price\": 500,\r\n            \"discount\": 40,\r\n            \"in_stock\": 25,\r\n            \"tags\": [\r\n                \"keyboard\",\r\n                \"mt-k202\",\r\n                \"meetion\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Micropack K-206 \",\r\n            \"description\": \"USB Keyboard\",\r\n            \"product_category\": \"Keyboard\",\r\n            \"price\": 380,\r\n            \"discount\": 50,\r\n            \"in_stock\": 30,\r\n            \"tags\": [\r\n                \"keyboard\",\r\n                \"k-206\",\r\n                \"micropack\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Delux KA190U \",\r\n            \"description\": \"USB Multimedia Keyboard\",\r\n            \"product_category\": \"Keyboard\",\r\n            \"price\": 650,\r\n            \"discount\": 150,\r\n            \"in_stock\": 35,\r\n            \"tags\": [\r\n                \"keyboard\",\r\n                \"ka190u\",\r\n                \"delux\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Meetion MT-K841 \",\r\n            \"description\": \" USB Ultrathin Standard Chocolate Keyboard\",\r\n            \"product_category\": \"Keyboard\",\r\n            \"price\": 550,\r\n            \"discount\": 40,\r\n            \"in_stock\": 28,\r\n            \"tags\": [\r\n                \"mt-k841\",\r\n                \"keyboard\",\r\n                \"meetion\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Walton WKS005WN \",\r\n            \"description\": \"USB Bangla & English Keyboard\",\r\n            \"product_category\": \"Keyboard\",\r\n            \"price\": 600,\r\n            \"discount\": 0,\r\n            \"in_stock\": 15,\r\n            \"tags\": [\r\n                \"wks005wn\",\r\n                \"keyboard\",\r\n                \"walton\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Meetion MT-K841\",\r\n            \"description\": \"USB Ultrathin Standard Chocolate Keyboard\",\r\n            \"product_category\": \"Keyboard\",\r\n            \"price\": 480,\r\n            \"discount\": 30,\r\n            \"in_stock\": 20,\r\n            \"tags\": [\r\n                \"mt-k841\",\r\n                \"keyboard\",\r\n                \"meetion\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Xtreme K911\",\r\n            \"description\": \"USB Mini Keyboard\",\r\n            \"product_category\": \"Keyboard\",\r\n            \"price\": 500,\r\n            \"discount\": 0,\r\n            \"in_stock\": 29,\r\n            \"tags\": [\r\n                \"xtreme\",\r\n                \"k911\",\r\n                \"keyboard\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Golden Field GF-K301 \",\r\n            \"description\": \"Wired Multimedia Keyboard with Bangla\",\r\n            \"product_category\": \"Keyboard\",\r\n            \"price\": 400,\r\n            \"discount\": 0,\r\n            \"in_stock\": 30,\r\n            \"tags\": [\r\n                \"field\",\r\n                \"keyboard\",\r\n                \"golden\",\r\n                \"gf-k301\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Rapoo NK1700\",\r\n            \"description\": \"wired usb 2.0 keyboard\",\r\n            \"product_category\": \"Keyboard\",\r\n            \"price\": 700,\r\n            \"discount\": 70,\r\n            \"in_stock\": 34,\r\n            \"tags\": [\r\n                \"nk1700\",\r\n                \"keyboard\",\r\n                \"rapoo\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Micropack K203 \",\r\n            \"description\": \"Basic USB Keyboard\",\r\n            \"product_category\": \"Keyboard\",\r\n            \"price\": 370,\r\n            \"discount\": 0,\r\n            \"in_stock\": 22,\r\n            \"tags\": [\r\n                \"k203\",\r\n                \"keyboard\",\r\n                \"micropack\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Targus Armor\",\r\n            \"description\": \"Mini Blue Trace Wired USB Mouse\",\r\n            \"product_category\": \"Mouse\",\r\n            \"price\": 220,\r\n            \"discount\": 20,\r\n            \"in_stock\": 34,\r\n            \"tags\": [\r\n                \"targus\",\r\n                \"mouse\",\r\n                \"armor\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Micropack M103\",\r\n            \"description\": \"Optical USB Mouse\",\r\n            \"product_category\": \"Mouse\",\r\n            \"price\": 250,\r\n            \"discount\": 0,\r\n            \"in_stock\": 30,\r\n            \"tags\": [\r\n                \"m103\",\r\n                \"mouse\",\r\n                \"micropack\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Targus U575\",\r\n            \"description\": \"USB Wired Optical Mouse(Black)\",\r\n            \"product_category\": \"Mouse\",\r\n            \"price\": 275,\r\n            \"discount\": 50,\r\n            \"in_stock\": 28,\r\n            \"tags\": [\r\n                \"targus\",\r\n                \"u575\",\r\n                \"mouse\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Walton WMS024WN\",\r\n            \"description\": \"USB Mouse\",\r\n            \"product_category\": \"Mouse\",\r\n            \"price\": 280,\r\n            \"discount\": 30,\r\n            \"in_stock\": 25,\r\n            \"tags\": [\r\n                \"wms024wn\",\r\n                \"mouse\",\r\n                \"walton\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"MotoSpeed F303 \",\r\n            \"description\": \"USB Optical Mouse\",\r\n            \"product_category\": \"Mouse\",\r\n            \"price\": 300,\r\n            \"discount\": 25,\r\n            \"in_stock\": 32,\r\n            \"tags\": [\r\n                \"f303\",\r\n                \"mouse\",\r\n                \"motospeed\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Targus W571\",\r\n            \"description\": \"Wirless Optical Mouse (Black)\",\r\n            \"product_category\": \"Mouse\",\r\n            \"price\": 350,\r\n            \"discount\": 0,\r\n            \"in_stock\": 24,\r\n            \"tags\": [\r\n                \"targus\",\r\n                \"mouse\",\r\n                \"w571\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Rapoo N6000\",\r\n            \"description\": \"USB Mini Mouse\",\r\n            \"product_category\": \"Mouse\",\r\n            \"price\": 450,\r\n            \"discount\": 0,\r\n            \"in_stock\": 20,\r\n            \"tags\": [\r\n                \"rapoo\",\r\n                \"n6000\",\r\n                \"mouse\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Logitech M90\",\r\n            \"description\": \"USB Contoured Shape MOUSE\",\r\n            \"product_category\": \"Mouse\",\r\n            \"price\": 412,\r\n            \"discount\": 0,\r\n            \"in_stock\": 22,\r\n            \"tags\": [\r\n                \"mouse\",\r\n                \"logitech\",\r\n                \"m90\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Motospeed G370\",\r\n            \"description\": \"Wireless Mouse\",\r\n            \"product_category\": \"Mouse\",\r\n            \"price\": 430,\r\n            \"discount\": 0,\r\n            \"in_stock\": 26,\r\n            \"tags\": [\r\n                \"g370\",\r\n                \"mouse\",\r\n                \"motospeed\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"A4Tech FM12\",\r\n            \"description\": \"FSTYLER USB Mouse Black\",\r\n            \"product_category\": \"Mouse\",\r\n            \"price\": 400,\r\n            \"discount\": 30,\r\n            \"in_stock\": 35,\r\n            \"tags\": [\r\n                \"fm12\",\r\n                \"a4tech\",\r\n                \"mouse\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"FANTECH W188\",\r\n            \"description\": \"2.4GHz Wireless Office Mouse White\",\r\n            \"product_category\": \"Mouse\",\r\n            \"price\": 600,\r\n            \"discount\": 30,\r\n            \"in_stock\": 34,\r\n            \"tags\": [\r\n                \"w188\",\r\n                \"mouse\",\r\n                \"fantech\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Havit MS691\",\r\n            \"description\": \"Ergonomic RGB Gaming Mouse\",\r\n            \"product_category\": \"Mouse\",\r\n            \"price\": 650,\r\n            \"discount\": 60,\r\n            \"in_stock\": 29,\r\n            \"tags\": [\r\n                \"ms691\",\r\n                \"havit\",\r\n                \"mouse\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"AOC E970SWN5\",\r\n            \"description\": \"18.5 inch LED Backlit Monitor\",\r\n            \"product_category\": \"Monitor\",\r\n            \"price\": 9500,\r\n            \"discount\": 200,\r\n            \"in_stock\": 32,\r\n            \"tags\": [\r\n                \"e970swn5\",\r\n                \"monitor\",\r\n                \"aoc\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Lenovo D19-10\",\r\n            \"description\": \"18.5 Inch HD HDMI VGA Monitor\",\r\n            \"product_category\": \"Monitor\",\r\n            \"price\": 10100,\r\n            \"discount\": 300,\r\n            \"in_stock\": 27,\r\n            \"tags\": [\r\n                \"monitor\",\r\n                \"lenovo\",\r\n                \"d19-10\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"PHILIPS\",\r\n            \"description\": \"18.5 Inch 193V5LSB2 LED MONITOR\",\r\n            \"product_category\": \"Monitor\",\r\n            \"price\": 9800,\r\n            \"discount\": 0,\r\n            \"in_stock\": 25,\r\n            \"tags\": [\r\n                \"monitor\",\r\n                \"philips\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Dell E1916HV \",\r\n            \"description\": \"18.5 Inch LED Monitor (VGA)\",\r\n            \"product_category\": \"Monitor\",\r\n            \"price\": 10530,\r\n            \"discount\": 400,\r\n            \"in_stock\": 28,\r\n            \"tags\": [\r\n                \"monitor\",\r\n                \"e1916hv\",\r\n                \"dell\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Dell D1918H\",\r\n            \"description\": \"18.5 Inch LED Monitor (VGA, HDMI)\",\r\n            \"product_category\": \"Monitor\",\r\n            \"price\": 10700,\r\n            \"discount\": 0,\r\n            \"in_stock\": 32,\r\n            \"tags\": [\r\n                \"d1918h\",\r\n                \"monitor\",\r\n                \"dell\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"LG 19M38A \",\r\n            \"description\": \"18.5 Inch Monitor\",\r\n            \"product_category\": \"Monitor\",\r\n            \"price\": 12000,\r\n            \"discount\": 500,\r\n            \"in_stock\": 35,\r\n            \"tags\": [\r\n                \"monitor\",\r\n                \"lg\",\r\n                \"19m38a\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"HP P204v\",\r\n            \"description\": \"19.5 Inch HD LED Monitor (HDMI, VGA)\",\r\n            \"product_category\": \"Monitor\",\r\n            \"price\": 11400,\r\n            \"discount\": 300,\r\n            \"in_stock\": 23,\r\n            \"tags\": [\r\n                \"monitor\",\r\n                \"p204v\",\r\n                \"hp\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Xiaomi Redmi 1A\",\r\n            \"description\": \"23.8 Monitor\",\r\n            \"product_category\": \"Monitor\",\r\n            \"price\": 13600,\r\n            \"discount\": 0,\r\n            \"in_stock\": 30,\r\n            \"tags\": [\r\n                \"1a\",\r\n                \"monitor\",\r\n                \"redmi\",\r\n                \"xiaomi\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"AOC E2270SWHN\",\r\n            \"description\": \"21.5 Inch Full HD LED Monitor\",\r\n            \"product_category\": \"Monitor\",\r\n            \"price\": 11500,\r\n            \"discount\": 300,\r\n            \"in_stock\": 26,\r\n            \"tags\": [\r\n                \"e2270swhn\",\r\n                \"monitor\",\r\n                \"aoc\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"LG 22MK430H-B\",\r\n            \"description\": \"22 Inch Full HD IPS LED Monitor with AMD FreeSync\",\r\n            \"product_category\": \"Monitor\",\r\n            \"price\": 13700,\r\n            \"discount\": 200,\r\n            \"in_stock\": 29,\r\n            \"tags\": [\r\n                \"22mk430h-b\",\r\n                \"monitor\",\r\n                \"lg\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"HP V22\",\r\n            \"description\": \"21.5 Inch LED Full HD Monitor\",\r\n            \"product_category\": \"Monitor\",\r\n            \"price\": 13400,\r\n            \"discount\": 0,\r\n            \"in_stock\": 34,\r\n            \"tags\": [\r\n                \"v22\",\r\n                \"monitor\",\r\n                \"hp\"\r\n            ]\r\n        },\r\n        {\r\n            \"product_name\": \"Dell SE2222H \",\r\n            \"description\": \"21.5 Inch FHD Monitor\",\r\n            \"product_category\": \"Monitor\",\r\n            \"price\": 15600,\r\n            \"discount\": 150,\r\n            \"in_stock\": 24,\r\n            \"tags\": [\r\n                \"se2222h\",\r\n                \"monitor\",\r\n                \"dell\"\r\n            ]\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/products/add-product",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"products",
+										"add-product"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "10984"
+								},
+								{
+									"key": "Vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.0.2 Python/3.9.5"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Jan 2022 22:13:38 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"isSuccess\": true,\n    \"operation\": \"Add product\",\n    \"total_inserted_products\": 35,\n    \"inserted_products\": [\n        {\n            \"product_name\": \"Havit KB271\",\n            \"description\": \"USB Exquisite Keyboard with Bangla\",\n            \"product_category\": \"Keyboard\",\n            \"price\": 420,\n            \"discount\": 30,\n            \"in_stock\": 32,\n            \"tags\": [\n                \"havit\",\n                \"keyboard\",\n                \"kb271\"\n            ],\n            \"created_at\": \"2022-01-21 04:13:37.660751\",\n            \"created_by\": \"admin\",\n            \"total_sold\": 0,\n            \"product_id\": \"bb9b2eaa-d4e7-4d72-a14e-3540f0c13f43\"\n        },\n        {\n            \"product_name\": \"Meetion MT-K202 \",\n            \"description\": \"USB Waterproof Wired Keyboard\",\n            \"product_category\": \"Keyboard\",\n            \"price\": 500,\n            \"discount\": 40,\n            \"in_stock\": 25,\n            \"tags\": [\n                \"keyboard\",\n                \"mt-k202\",\n                \"meetion\"\n            ],\n            \"created_at\": \"2022-01-21 04:13:37.660751\",\n            \"created_by\": \"admin\",\n            \"total_sold\": 0,\n            \"product_id\": \"0c0d6d41-f788-4054-8e38-ae6e2ffe6c65\"\n        },\n        {\n            \"product_name\": \"Micropack K-206 \",\n            \"description\": \"USB Keyboard\",\n            \"product_category\": \"Keyboard\",\n            \"price\": 380,\n            \"discount\": 50,\n            \"in_stock\": 30,\n            \"tags\": [\n                \"keyboard\",\n                \"k-206\",\n                \"micropack\"\n            ],\n            \"created_at\": \"2022-01-21 04:13:37.660751\",\n            \"created_by\": \"admin\",\n            \"total_sold\": 0,\n            \"product_id\": \"06077b7d-7246-4c67-99fc-d8024325a714\"\n        },\n        {\n            \"product_name\": \"Delux KA190U \",\n            \"description\": \"USB Multimedia Keyboard\",\n            \"product_category\": \"Keyboard\",\n            \"price\": 650,\n            \"discount\": 150,\n            \"in_stock\": 35,\n            \"tags\": [\n                \"keyboard\",\n                \"ka190u\",\n                \"delux\"\n            ],\n            \"created_at\": \"2022-01-21 04:13:37.660751\",\n            \"created_by\": \"admin\",\n            \"total_sold\": 0,\n            \"product_id\": \"869a2e3f-1ed6-4672-b70b-05b08ebe3413\"\n        },\n        {\n            \"product_name\": \"Meetion MT-K841 \",\n            \"description\": \" USB Ultrathin Standard Chocolate Keyboard\",\n            \"product_category\": \"Keyboard\",\n            \"price\": 550,\n            \"discount\": 40,\n            \"in_stock\": 28,\n            \"tags\": [\n                \"mt-k841\",\n                \"keyboard\",\n                \"meetion\"\n            ],\n            \"created_at\": \"2022-01-21 04:13:37.660751\",\n            \"created_by\": \"admin\",\n            \"total_sold\": 0,\n            \"product_id\": \"b8297bbf-2103-4cdb-8f8f-b5e6ceab2453\"\n        },\n        {\n            \"product_name\": \"Walton WKS005WN \",\n            \"description\": \"USB Bangla & English Keyboard\",\n            \"product_category\": \"Keyboard\",\n            \"price\": 600,\n            \"discount\": 0,\n            \"in_stock\": 15,\n            \"tags\": [\n                \"wks005wn\",\n                \"keyboard\",\n                \"walton\"\n            ],\n            \"created_at\": \"2022-01-21 04:13:37.660751\",\n            \"created_by\": \"admin\",\n            \"total_sold\": 0,\n            \"product_id\": \"a3e9ad2b-1a40-4eb1-a4e8-20116b11b86d\"\n        },\n        {\n            \"product_name\": \"Meetion MT-K841\",\n            \"description\": \"USB Ultrathin Standard Chocolate Keyboard\",\n            \"product_category\": \"Keyboard\",\n            \"price\": 480,\n            \"discount\": 30,\n            \"in_stock\": 20,\n            \"tags\": [\n                \"mt-k841\",\n                \"keyboard\",\n                \"meetion\"\n            ],\n            \"created_at\": \"2022-01-21 04:13:37.660751\",\n            \"created_by\": \"admin\",\n            \"total_sold\": 0,\n            \"product_id\": \"b3762dd0-2fe5-440d-93d6-83909320024f\"\n        },\n        {\n            \"product_name\": \"Xtreme K911\",\n            \"description\": \"USB Mini Keyboard\",\n            \"product_category\": \"Keyboard\",\n            \"price\": 500,\n            \"discount\": 0,\n            \"in_stock\": 29,\n            \"tags\": [\n                \"xtreme\",\n                \"k911\",\n                \"keyboard\"\n            ],\n            \"created_at\": \"2022-01-21 04:13:37.660751\",\n            \"created_by\": \"admin\",\n            \"total_sold\": 0,\n            \"product_id\": \"980161df-933e-4826-8422-ab0b4b82f73e\"\n        },\n        {\n            \"product_name\": \"Golden Field GF-K301 \",\n            \"description\": \"Wired Multimedia Keyboard with Bangla\",\n            \"product_category\": \"Keyboard\",\n            \"price\": 400,\n            \"discount\": 0,\n            \"in_stock\": 30,\n            \"tags\": [\n                \"field\",\n                \"keyboard\",\n                \"golden\",\n                \"gf-k301\"\n            ],\n            \"created_at\": \"2022-01-21 04:13:37.660751\",\n            \"created_by\": \"admin\",\n            \"total_sold\": 0,\n            \"product_id\": \"5f57ffb4-295d-49f3-84bd-5fd82abdefb7\"\n        },\n        {\n            \"product_name\": \"Rapoo NK1700\",\n            \"description\": \"wired usb 2.0 keyboard\",\n            \"product_category\": \"Keyboard\",\n            \"price\": 700,\n            \"discount\": 70,\n            \"in_stock\": 34,\n            \"tags\": [\n                \"nk1700\",\n                \"keyboard\",\n                \"rapoo\"\n            ],\n            \"created_at\": \"2022-01-21 04:13:37.660751\",\n            \"created_by\": \"admin\",\n            \"total_sold\": 0,\n            \"product_id\": \"a78cfe8b-0967-402e-b497-90f2e6545c52\"\n        },\n        {\n            \"product_name\": \"Micropack K203 \",\n            \"description\": \"Basic USB Keyboard\",\n            \"product_category\": \"Keyboard\",\n            \"price\": 370,\n            \"discount\": 0,\n            \"in_stock\": 22,\n            \"tags\": [\n                \"k203\",\n                \"keyboard\",\n                \"micropack\"\n            ],\n            \"created_at\": \"2022-01-21 04:13:37.660751\",\n            \"created_by\": \"admin\",\n            \"total_sold\": 0,\n            \"product_id\": \"577f7612-d785-4521-b024-59c54db4f7d9\"\n        },\n        {\n            \"product_name\": \"Targus Armor\",\n            \"description\": \"Mini Blue Trace Wired USB Mouse\",\n            \"product_category\": \"Mouse\",\n            \"price\": 220,\n            \"discount\": 20,\n            \"in_stock\": 34,\n            \"tags\": [\n                \"targus\",\n                \"mouse\",\n                \"armor\"\n            ],\n            \"created_at\": \"2022-01-21 04:13:37.660751\",\n            \"created_by\": \"admin\",\n            \"total_sold\": 0,\n            \"product_id\": \"a1862a6b-8ebe-4fb1-a156-e4ce8a6b338c\"\n        },\n        {\n            \"product_name\": \"Micropack M103\",\n            \"description\": \"Optical USB Mouse\",\n            \"product_category\": \"Mouse\",\n            \"price\": 250,\n            \"discount\": 0,\n            \"in_stock\": 30,\n            \"tags\": [\n                \"m103\",\n                \"mouse\",\n                \"micropack\"\n            ],\n            \"created_at\": \"2022-01-21 04:13:37.660751\",\n            \"created_by\": \"admin\",\n            \"total_sold\": 0,\n            \"product_id\": \"0ed3da84-61c8-4eec-90e6-f24972ed6285\"\n        },\n        {\n            \"product_name\": \"Targus U575\",\n            \"description\": \"USB Wired Optical Mouse(Black)\",\n            \"product_category\": \"Mouse\",\n            \"price\": 275,\n            \"discount\": 50,\n            \"in_stock\": 28,\n            \"tags\": [\n                \"targus\",\n                \"u575\",\n                \"mouse\"\n            ],\n            \"created_at\": \"2022-01-21 04:13:37.660751\",\n            \"created_by\": \"admin\",\n            \"total_sold\": 0,\n            \"product_id\": \"9e2fa079-9481-4817-9084-8d6d5d53d501\"\n        },\n        {\n            \"product_name\": \"Walton WMS024WN\",\n            \"description\": \"USB Mouse\",\n            \"product_category\": \"Mouse\",\n            \"price\": 280,\n            \"discount\": 30,\n            \"in_stock\": 25,\n            \"tags\": [\n                \"wms024wn\",\n                \"mouse\",\n                \"walton\"\n            ],\n            \"created_at\": \"2022-01-21 04:13:37.660751\",\n            \"created_by\": \"admin\",\n            \"total_sold\": 0,\n            \"product_id\": \"08d4a5f1-083f-4f74-8ab3-8227901f4868\"\n        },\n        {\n            \"product_name\": \"MotoSpeed F303 \",\n            \"description\": \"USB Optical Mouse\",\n            \"product_category\": \"Mouse\",\n            \"price\": 300,\n            \"discount\": 25,\n            \"in_stock\": 32,\n            \"tags\": [\n                \"f303\",\n                \"mouse\",\n                \"motospeed\"\n            ],\n            \"created_at\": \"2022-01-21 04:13:37.660751\",\n            \"created_by\": \"admin\",\n            \"total_sold\": 0,\n            \"product_id\": \"5ab06318-f4f3-4d78-835b-8f893e61b2ef\"\n        },\n        {\n            \"product_name\": \"Targus W571\",\n            \"description\": \"Wirless Optical Mouse (Black)\",\n            \"product_category\": \"Mouse\",\n            \"price\": 350,\n            \"discount\": 0,\n            \"in_stock\": 24,\n            \"tags\": [\n                \"targus\",\n                \"mouse\",\n                \"w571\"\n            ],\n            \"created_at\": \"2022-01-21 04:13:37.660751\",\n            \"created_by\": \"admin\",\n            \"total_sold\": 0,\n            \"product_id\": \"f6a66cf5-510d-46b1-862d-e0304c82f74d\"\n        },\n        {\n            \"product_name\": \"Rapoo N6000\",\n            \"description\": \"USB Mini Mouse\",\n            \"product_category\": \"Mouse\",\n            \"price\": 450,\n            \"discount\": 0,\n            \"in_stock\": 20,\n            \"tags\": [\n                \"rapoo\",\n                \"n6000\",\n                \"mouse\"\n            ],\n            \"created_at\": \"2022-01-21 04:13:37.660751\",\n            \"created_by\": \"admin\",\n            \"total_sold\": 0,\n            \"product_id\": \"c6a312b5-f159-463a-8ec8-08031a74d077\"\n        },\n        {\n            \"product_name\": \"Logitech M90\",\n            \"description\": \"USB Contoured Shape MOUSE\",\n            \"product_category\": \"Mouse\",\n            \"price\": 412,\n            \"discount\": 0,\n            \"in_stock\": 22,\n            \"tags\": [\n                \"mouse\",\n                \"logitech\",\n                \"m90\"\n            ],\n            \"created_at\": \"2022-01-21 04:13:37.660751\",\n            \"created_by\": \"admin\",\n            \"total_sold\": 0,\n            \"product_id\": \"e52fbac8-e796-4f98-b569-3bf7cc4c970d\"\n        },\n        {\n            \"product_name\": \"Motospeed G370\",\n            \"description\": \"Wireless Mouse\",\n            \"product_category\": \"Mouse\",\n            \"price\": 430,\n            \"discount\": 0,\n            \"in_stock\": 26,\n            \"tags\": [\n                \"g370\",\n                \"mouse\",\n                \"motospeed\"\n            ],\n            \"created_at\": \"2022-01-21 04:13:37.660751\",\n            \"created_by\": \"admin\",\n            \"total_sold\": 0,\n            \"product_id\": \"1e554265-46a0-430c-adbe-c95e6ff2bd49\"\n        },\n        {\n            \"product_name\": \"A4Tech FM12\",\n            \"description\": \"FSTYLER USB Mouse Black\",\n            \"product_category\": \"Mouse\",\n            \"price\": 400,\n            \"discount\": 30,\n            \"in_stock\": 35,\n            \"tags\": [\n                \"fm12\",\n                \"a4tech\",\n                \"mouse\"\n            ],\n            \"created_at\": \"2022-01-21 04:13:37.660751\",\n            \"created_by\": \"admin\",\n            \"total_sold\": 0,\n            \"product_id\": \"3a507a23-5130-4515-a87b-29bd709f8735\"\n        },\n        {\n            \"product_name\": \"FANTECH W188\",\n            \"description\": \"2.4GHz Wireless Office Mouse White\",\n            \"product_category\": \"Mouse\",\n            \"price\": 600,\n            \"discount\": 30,\n            \"in_stock\": 34,\n            \"tags\": [\n                \"w188\",\n                \"mouse\",\n                \"fantech\"\n            ],\n            \"created_at\": \"2022-01-21 04:13:37.660751\",\n            \"created_by\": \"admin\",\n            \"total_sold\": 0,\n            \"product_id\": \"1848bc9a-f854-4b64-a24b-ebd20bbebe20\"\n        },\n        {\n            \"product_name\": \"Havit MS691\",\n            \"description\": \"Ergonomic RGB Gaming Mouse\",\n            \"product_category\": \"Mouse\",\n            \"price\": 650,\n            \"discount\": 60,\n            \"in_stock\": 29,\n            \"tags\": [\n                \"ms691\",\n                \"havit\",\n                \"mouse\"\n            ],\n            \"created_at\": \"2022-01-21 04:13:37.660751\",\n            \"created_by\": \"admin\",\n            \"total_sold\": 0,\n            \"product_id\": \"970d136e-5aa8-4216-9102-344e8e56b048\"\n        },\n        {\n            \"product_name\": \"AOC E970SWN5\",\n            \"description\": \"18.5 inch LED Backlit Monitor\",\n            \"product_category\": \"Monitor\",\n            \"price\": 9500,\n            \"discount\": 200,\n            \"in_stock\": 32,\n            \"tags\": [\n                \"e970swn5\",\n                \"monitor\",\n                \"aoc\"\n            ],\n            \"created_at\": \"2022-01-21 04:13:37.660751\",\n            \"created_by\": \"admin\",\n            \"total_sold\": 0,\n            \"product_id\": \"2d740fff-e0fc-4fd3-9dc6-0fd0d13d9e30\"\n        },\n        {\n            \"product_name\": \"Lenovo D19-10\",\n            \"description\": \"18.5 Inch HD HDMI VGA Monitor\",\n            \"product_category\": \"Monitor\",\n            \"price\": 10100,\n            \"discount\": 300,\n            \"in_stock\": 27,\n            \"tags\": [\n                \"monitor\",\n                \"lenovo\",\n                \"d19-10\"\n            ],\n            \"created_at\": \"2022-01-21 04:13:37.660751\",\n            \"created_by\": \"admin\",\n            \"total_sold\": 0,\n            \"product_id\": \"f1a388a3-a739-460f-9bfd-1db61813a6c7\"\n        },\n        {\n            \"product_name\": \"PHILIPS\",\n            \"description\": \"18.5 Inch 193V5LSB2 LED MONITOR\",\n            \"product_category\": \"Monitor\",\n            \"price\": 9800,\n            \"discount\": 0,\n            \"in_stock\": 25,\n            \"tags\": [\n                \"monitor\",\n                \"philips\"\n            ],\n            \"created_at\": \"2022-01-21 04:13:37.660751\",\n            \"created_by\": \"admin\",\n            \"total_sold\": 0,\n            \"product_id\": \"19a3f107-89cb-4de8-a41f-252778798554\"\n        },\n        {\n            \"product_name\": \"Dell E1916HV \",\n            \"description\": \"18.5 Inch LED Monitor (VGA)\",\n            \"product_category\": \"Monitor\",\n            \"price\": 10530,\n            \"discount\": 400,\n            \"in_stock\": 28,\n            \"tags\": [\n                \"monitor\",\n                \"e1916hv\",\n                \"dell\"\n            ],\n            \"created_at\": \"2022-01-21 04:13:37.660751\",\n            \"created_by\": \"admin\",\n            \"total_sold\": 0,\n            \"product_id\": \"1ffd0ebd-a256-4da1-ad5e-9c3da4af738e\"\n        },\n        {\n            \"product_name\": \"Dell D1918H\",\n            \"description\": \"18.5 Inch LED Monitor (VGA, HDMI)\",\n            \"product_category\": \"Monitor\",\n            \"price\": 10700,\n            \"discount\": 0,\n            \"in_stock\": 32,\n            \"tags\": [\n                \"d1918h\",\n                \"monitor\",\n                \"dell\"\n            ],\n            \"created_at\": \"2022-01-21 04:13:37.660751\",\n            \"created_by\": \"admin\",\n            \"total_sold\": 0,\n            \"product_id\": \"247e632d-793f-4727-8395-b1a643650d85\"\n        },\n        {\n            \"product_name\": \"LG 19M38A \",\n            \"description\": \"18.5 Inch Monitor\",\n            \"product_category\": \"Monitor\",\n            \"price\": 12000,\n            \"discount\": 500,\n            \"in_stock\": 35,\n            \"tags\": [\n                \"monitor\",\n                \"lg\",\n                \"19m38a\"\n            ],\n            \"created_at\": \"2022-01-21 04:13:37.660751\",\n            \"created_by\": \"admin\",\n            \"total_sold\": 0,\n            \"product_id\": \"704484f6-37b5-40fc-b1ed-1d256447b1b1\"\n        },\n        {\n            \"product_name\": \"HP P204v\",\n            \"description\": \"19.5 Inch HD LED Monitor (HDMI, VGA)\",\n            \"product_category\": \"Monitor\",\n            \"price\": 11400,\n            \"discount\": 300,\n            \"in_stock\": 23,\n            \"tags\": [\n                \"monitor\",\n                \"p204v\",\n                \"hp\"\n            ],\n            \"created_at\": \"2022-01-21 04:13:37.660751\",\n            \"created_by\": \"admin\",\n            \"total_sold\": 0,\n            \"product_id\": \"c8dbb3e1-7def-44e0-af64-d3c49ec30861\"\n        },\n        {\n            \"product_name\": \"Xiaomi Redmi 1A\",\n            \"description\": \"23.8 Monitor\",\n            \"product_category\": \"Monitor\",\n            \"price\": 13600,\n            \"discount\": 0,\n            \"in_stock\": 30,\n            \"tags\": [\n                \"1a\",\n                \"monitor\",\n                \"redmi\",\n                \"xiaomi\"\n            ],\n            \"created_at\": \"2022-01-21 04:13:37.660751\",\n            \"created_by\": \"admin\",\n            \"total_sold\": 0,\n            \"product_id\": \"a87cebfe-bdc6-4bfd-b1bb-7c5cab2d6240\"\n        },\n        {\n            \"product_name\": \"AOC E2270SWHN\",\n            \"description\": \"21.5 Inch Full HD LED Monitor\",\n            \"product_category\": \"Monitor\",\n            \"price\": 11500,\n            \"discount\": 300,\n            \"in_stock\": 26,\n            \"tags\": [\n                \"e2270swhn\",\n                \"monitor\",\n                \"aoc\"\n            ],\n            \"created_at\": \"2022-01-21 04:13:37.660751\",\n            \"created_by\": \"admin\",\n            \"total_sold\": 0,\n            \"product_id\": \"50ca45fd-8465-4a0c-a48e-79939156b4fb\"\n        },\n        {\n            \"product_name\": \"LG 22MK430H-B\",\n            \"description\": \"22 Inch Full HD IPS LED Monitor with AMD FreeSync\",\n            \"product_category\": \"Monitor\",\n            \"price\": 13700,\n            \"discount\": 200,\n            \"in_stock\": 29,\n            \"tags\": [\n                \"22mk430h-b\",\n                \"monitor\",\n                \"lg\"\n            ],\n            \"created_at\": \"2022-01-21 04:13:37.660751\",\n            \"created_by\": \"admin\",\n            \"total_sold\": 0,\n            \"product_id\": \"d5546193-fc26-4b2f-8f8c-254a07a29867\"\n        },\n        {\n            \"product_name\": \"HP V22\",\n            \"description\": \"21.5 Inch LED Full HD Monitor\",\n            \"product_category\": \"Monitor\",\n            \"price\": 13400,\n            \"discount\": 0,\n            \"in_stock\": 34,\n            \"tags\": [\n                \"v22\",\n                \"monitor\",\n                \"hp\"\n            ],\n            \"created_at\": \"2022-01-21 04:13:37.660751\",\n            \"created_by\": \"admin\",\n            \"total_sold\": 0,\n            \"product_id\": \"5628cd65-081b-40b0-9305-03f87b4a6303\"\n        },\n        {\n            \"product_name\": \"Dell SE2222H \",\n            \"description\": \"21.5 Inch FHD Monitor\",\n            \"product_category\": \"Monitor\",\n            \"price\": 15600,\n            \"discount\": 150,\n            \"in_stock\": 24,\n            \"tags\": [\n                \"se2222h\",\n                \"monitor\",\n                \"dell\"\n            ],\n            \"created_at\": \"2022-01-21 04:13:37.660751\",\n            \"created_by\": \"admin\",\n            \"total_sold\": 0,\n            \"product_id\": \"2acbb328-affc-433f-8d48-629e0536b505\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "all-products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/products/all-products",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"products",
+								"all-products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "product-details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/products/product-details/{{product_id}}",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"products",
+								"product-details",
+								"{{product_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"product_name\": \"test book 2 updated\",\r\n    \"description\": \"test description 2 updated\",\r\n    \"product_category\": \"book\",\r\n    \"price\": 51.20,\r\n    \"discount\": 15.50,\r\n    \"tags\": [\r\n        \"test\",\r\n        \"book\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/products/update-product/{{product_id}}",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"products",
+								"update-product",
+								"{{product_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/products/delete-product/{{product_id}}",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"products",
+								"delete-product",
+								"{{product_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search-products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/products/search-products?q=keyboard",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"products",
+								"search-products"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "keyboard"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-products-to-wishlist",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"product_ids\": [\r\n        \"207e0de4-1ba8-4ca6-be70-b94caf789c03\",\r\n        \"b840d02e-2adf-47c0-a17d-8acfe9685d32\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/products/add-products-to-wishlist",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"products",
+								"add-products-to-wishlist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove-product-from-wishlist",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"product_ids\": [\r\n        \"e0fe1350-b4e4-43d4-9310-40cc2cc786e3\",\r\n        \"207ff5d7-d89a-4b13-aefd-fb7a3de67d02\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/products/remove-product-from-wishlist/{{product_id}}",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"products",
+								"remove-product-from-wishlist",
+								"{{product_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "wishlist-products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/products/wishlist-products",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"products",
+								"wishlist-products"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "shopping_cart",
+			"item": [
+				{
+					"name": "add-to-cart",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"products\": [\r\n        {\r\n            \"product_id\": \"35c49731-f16a-4fc1-a85b-cda90bdeea34\",\r\n            \"quantity\": 30\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/shopping-cart/add-to-cart",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"shopping-cart",
+								"add-to-cart"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "add-to-cart",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"products\": [\r\n        {\r\n            \"product_id\": \"01606bc9-d24d-411d-92b6-bdf75cd9c3ed\",\r\n            \"quantity\": 1\r\n        },\r\n        {\r\n            \"product_id\": \"ff0e3eee-2d6c-4e26-8163-5f941f344e80\",\r\n            \"quantity\": 1\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/shopping-cart/add-to-cart",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"shopping-cart",
+										"add-to-cart"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "63"
+								},
+								{
+									"key": "Vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.0.2 Python/3.9.5"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Jan 2022 18:29:21 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"isSuccess\": true,\n    \"message\": \"Products added to shopping cart\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get-products-in-cart",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/shopping-cart/get-products-in-cart",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"shopping-cart",
+								"get-products-in-cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-from-shopping-cart",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/shopping-cart/delete-from-shopping-cart/{{product_id}}",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"shopping-cart",
+								"delete-from-shopping-cart",
+								"{{product_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "orders",
+			"item": [
+				{
+					"name": "make-order",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.globals.set(\"order_id\", pm.response.json().order_id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"payment_method\": \"credit_card\",\r\n    \"delivery_address\": \"Banasree\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/orders/make-order",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"orders",
+								"make-order"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "make-order",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"payment_method\": \"credit_card\",\r\n    \"address\": \"Banasree\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/orders/make-order",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"orders",
+										"make-order"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "97"
+								},
+								{
+									"key": "Vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/2.0.2 Python/3.9.5"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Jan 2022 18:30:03 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"isSuccess\": true,\n    \"message\": \"Create an Order\",\n    \"order_id\": \"045216ce-b29b-424e-a76f-afaccb6ea12b\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get-all-orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/orders/get-all-orders",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"orders",
+								"get-all-orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-customers-orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/orders/get-all-customers-orders",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"orders",
+								"get-all-customers-orders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "shippers",
+			"item": [
+				{
+					"name": "add-shippers",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"shippers\": [\r\n        {\r\n            \"shipper_name\": \"Speedy Express\",\r\n            \"phone_number\": \"(503) 555-9831\"\r\n        },\r\n        {\r\n            \"shipper_name\": \"United Package\",\r\n            \"phone_number\": \"(503) 555-3199\"\r\n        },\r\n        {\r\n            \"shipper_name\": \"Federal Shipping\",\r\n            \"phone_number\": \"(503) 555-9931\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/shippers/create-shippers",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"shippers",
+								"create-shippers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-shipment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"shipper_id\": \"49591dc1-725f-4caf-8b83-8bab274f7f4b\",\r\n    \"order_ids\": [\r\n        \"11c070d9-0b7f-47f0-8f11-7f0b41a0e709\",\r\n        \"50aa9309-a434-4321-9b36-7f8e268482ff\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/shippers/create-shipment",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"shippers",
+								"create-shipment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all-shippers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/shippers/all-shippers",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"shippers",
+								"all-shippers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
